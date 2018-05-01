@@ -13,11 +13,11 @@ namespace lab8_studentinfo
          * give proper responses according to user submitted information.
          * ask user if they would like to learn about another student.
          * 
-         * input validation with exceptions
-         * incorporate IndexOutOfRangeException and FormatException. */
+         * input validation.*/
 
         static void Main(string[] args)
         {
+            // declares string arrays
             string[] Students = { "Joeseph", "Sean", "Stephen", "Drew", "Marco","Bruce", "Chris",
                         "Dorian","Edward","Frank","Greg","Henry","Illya","Jim","Kendall","Lou","Mary",
                         "Nancy","Othello","Paul" };
@@ -33,6 +33,7 @@ namespace lab8_studentinfo
 
             Console.WriteLine("Welcome to our C# class! Which student would you like to learn more about?");
 
+            // RunProgram is set to true, GoAgainAsker will set it to false.
             bool RunProgram = true;
             while (RunProgram == true)
             {
@@ -44,6 +45,7 @@ namespace lab8_studentinfo
                 int.TryParse(userchoice, out studentnum);
                 studentnum = studentnum - 1;
 
+                //input validation for student number.
                 if (studentnum < 0 || studentnum >= 20)
                 {
                     Console.WriteLine("That student does not exist.  Please try again.");
@@ -55,6 +57,7 @@ namespace lab8_studentinfo
                     Console.WriteLine("Enter 'hometown' or 'favorite food'.");
                     string infochoice = Console.ReadLine();
 
+                    // input validation for student's info selection.
                     if (infochoice != "hometown" && infochoice != "favorite food")
                     {
                         Console.WriteLine("That data does not exist.  Please try again.");
@@ -92,7 +95,5 @@ namespace lab8_studentinfo
                 return false;
             }
         }
-
-
     }
 }
