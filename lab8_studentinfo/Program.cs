@@ -88,11 +88,10 @@ namespace lab8_studentinfo
         static bool GoAgainAsker()
         {
             Console.WriteLine("Would you like to know more?  Type y for yes or anything else for no.");
-            string input = Console.ReadLine();
+            string input = Console.ReadLine().ToLower();
             if (input == "y")
             {
                 return true;
-
             }
             else
             {
