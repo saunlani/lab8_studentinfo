@@ -54,27 +54,32 @@ namespace lab8_studentinfo
                 else
                 {
                     Console.WriteLine($"Student {studentnum + 1} is {Students[studentnum]}. What would you like to know about {Students[studentnum]}?");
-                    Console.WriteLine("Enter 'hometown' or 'favorite food'.");
-                    string infochoice = Console.ReadLine();
 
-                    // input validation for student's info selection.
-                    if (infochoice != "hometown" && infochoice != "favorite food")
+                    while (RunProgram == true)
                     {
-                        Console.WriteLine("That data does not exist.  Please try again.");
-                        continue;
+                        Console.WriteLine("Enter 'hometown' or 'favorite food'.");
+                        string infochoice = Console.ReadLine();
+
+                        // input validation for student's info selection.
+                        if (infochoice != "hometown" && infochoice != "favorite food")
+                        {
+                            Console.WriteLine("That data does not exist.  Please try again.");
+                            continue;
+                        }
+
+                        else if (infochoice == "hometown")
+                        {
+                            Console.WriteLine($"{Students[studentnum]} is from {Hometowns[studentnum]}.");
+                            RunProgram = GoAgainAsker();
+                        }
+                        else if (infochoice == "favorite food")
+
+                        {
+                            Console.WriteLine($"{Students[studentnum]}'s favorite food is {FavFoods[studentnum]}.");
+                            RunProgram = GoAgainAsker();
+
+                        }
                     }
-
-                    else if (infochoice == "hometown")
-                    {
-                        Console.WriteLine($"{Students[studentnum]} is from {Hometowns[studentnum]}.");
-                        RunProgram = GoAgainAsker();
-                    }
-                    else if (infochoice == "favorite food")
-
-                    {
-                        Console.WriteLine($"{Students[studentnum]}'s favorite food is {FavFoods[studentnum]}.");
-                        RunProgram = GoAgainAsker();
-                    }  
                 }
             }
 
