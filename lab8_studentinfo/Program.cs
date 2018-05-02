@@ -18,17 +18,19 @@ namespace lab8_studentinfo
         static void Main(string[] args)
         {
             // declares string arrays
-            string[] Students = { "Joeseph", "Sean", "Stephen", "Drew", "Marco","Bruce", "Chris",
+            string[] Students = { "Angela","Bruce", "Chris",
                         "Dorian","Edward","Frank","Greg","Henry","Illya","Jim","Kendall","Lou","Mary",
-                        "Nancy","Othello","Paul" };
-            string[] Hometowns = { "Detroit, MI", "St. Clair Shores, MI", "Los Angeles, CA",
-                        "Roseville, MI", "Rome, Italy","Belleville, MI", "Chicago, IL", "Denver, CO",
+                "Nancy","Othello","Paul", "Qurin", "Richard", "Stephen", "Tim",  };
+            string[] Hometowns = { "Akron, Ohio","Belleville, MI", "Chicago, IL", "Denver, CO",
                         "Edmonton, Canada", "Frankenmuth, MI", "Gary, IN", "Hamburg, Germany",
                         "Indianapolis, IN", "Jerusalem, Israel", "Kano, Nigeria", "La Trinidad, Nigeria",
-                        "Madison Heights, MI", "Nunapitchuk, Alaska", "Oakland, CA", "Pa Ju, South Korea"};
-            string[] FavFoods = { "Passion Fruit", "Hamburgers", "Tacos", "Pizza", "Lasagna","Soup",
-                        "Pizza","Chicken Schwarma","Pad Thai","Hot Dogs","Apples","Potatoes","Drunken Noodle","Chips","Salad",
-                        "Sandwiches","Bibimbap","Chicken Vindaloo","Lamb Korma","Jinga Masala"};
+                "Madison Heights, MI", "Nunapitchuk, Alaska", "Oakland, CA", "Pa Ju, South Korea", 
+                "Quebec City, Canada", "Richmond, VA", "San Diego, CA",
+                        "Tama, Japan", };
+            string[] FavFoods = {"Lasagna","Soup",
+                        "Pizza","Chicken Schwarma","Pad Thai","Hot Dogs","Apples","Potatoes",
+                "Drunken Noodle","Chips","Salad", "Sandwiches","Bibimbap","Chicken Vindaloo",
+                "Lamb Korma","Jinga Masala", "Passion Fruit", "Hamburgers", "Tacos", "Pizza", };
 
 
             Console.WriteLine("Welcome to our C# class! Which student would you like to learn more about?");
@@ -54,7 +56,6 @@ namespace lab8_studentinfo
                 else
                 {
                     Console.WriteLine($"Student {studentnum + 1} is {Students[studentnum]}. What would you like to know about {Students[studentnum]}?");
-
                     while (RunProgram == true)
                     {
                         Console.WriteLine("Enter 'hometown' or 'favorite food'.");
@@ -80,6 +81,7 @@ namespace lab8_studentinfo
 
                         }
                     }
+                    RunProgram = AnotherStudent();
                 }
             }
 
@@ -88,6 +90,21 @@ namespace lab8_studentinfo
         static bool GoAgainAsker()
         {
             Console.WriteLine("Would you like to know more?  Type y for yes or anything else for no.");
+            string input = Console.ReadLine().ToLower();
+            if (input == "y")
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Bye!");
+                return false;
+            }
+        }
+
+        static bool AnotherStudent()
+        {
+            Console.WriteLine("Would you like to know more about another student?  Type y for yes or anything else for no.");
             string input = Console.ReadLine().ToLower();
             if (input == "y")
             {
